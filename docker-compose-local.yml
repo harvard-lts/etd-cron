@@ -1,19 +1,19 @@
 version: '3.8'
 services:
   mps-cron:
-    container_name: "jstor-cron"
+    container_name: "etd-cron"
     build:
       context: "."
       dockerfile: "Dockerfile"
     volumes:
-      - ./data:/home/jstorforumadm/data
-      - ./logs:/home/jstorforumadm/logs
+      - ./data:/home/etdadm/data
+      - ./logs:/home/etdadm/logs
     env_file:
       - ./.env
     environment:
-      QUEUE_NAME: proto_harvest
+      QUEUE_NAME: etd_submission_ready
 
 # Create a custom docker network if it does not exist already
 networks:
-  jstorforum-net:
-    name: jstorforum-net
+  etd-net:
+    name: etd-net

@@ -2,7 +2,7 @@
 ETD cron container
 
 
-* After setting up and running your docker instance, this will run the jstor harvester pipeline at the first second of every minute
+* After setting up and running your docker instance, this will run the etd harvester pipeline at the first second of every minute
 
 * log files are in the `logs` subdirectory
 
@@ -44,7 +44,7 @@ docker-compose -f docker-compose-local.yml up -d --build --force-recreate
 
 ##### Run docker exec to execute a shell in the container by name
 
-Open a shell using the exec command to access the  jstor-cron container.
+Open a shell using the exec command to access the  etd-cron container.
 
 ```
 docker exec -it etd-cron bash
