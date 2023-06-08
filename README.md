@@ -19,7 +19,7 @@ Docker Compose
 ## Local Development Environment Setup Instructions
 
 ### 1: Clone the repository to a local directory
-```git clone git@github.huit.harvard.edu:LTS/etd-cron.git```
+```git clone git@github.com/harvard-lts/etd-cron.git```
 
 ### 2: Create app config
 
