@@ -1,5 +1,5 @@
-# jstor-cron
-JSTOR cron container
+# etd-cron
+ETD cron container
 
 
 * After setting up and running your docker instance, this will run the jstor harvester pipeline at the first second of every minute
@@ -19,7 +19,7 @@ Docker Compose
 ## Local Development Environment Setup Instructions
 
 ### 1: Clone the repository to a local directory
-```git clone git@github.huit.harvard.edu:LTS/jstor-cron.git```
+```git clone git@github.huit.harvard.edu:LTS/etd-cron.git```
 
 ### 2: Create app config
 
@@ -47,7 +47,7 @@ docker-compose -f docker-compose-local.yml up -d --build --force-recreate
 Open a shell using the exec command to access the  jstor-cron container.
 
 ```
-docker exec -it jstor-cron bash
+docker exec -it etd-cron bash
 ```
 
 ### 5: Stop
