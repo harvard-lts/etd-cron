@@ -9,7 +9,7 @@ ENV GROUP_ID_NAME=appcommon
 RUN apt-get -y update && \
     DEBIAN_FRONTEND=non-interactive && \
     groupadd -g ${GROUP_ID_NUMBER} ${GROUP_ID_NAME} && \
-    useradd -l -s /bin/bash -m -u ${APP_ID_NUMBER} -g etdadm ${APP_ID_NAME}
+    useradd -l -s /bin/bash -m -u ${APP_ID_NUMBER} -g appcommon ${APP_ID_NAME}
 
 WORKDIR /home/${APP_ID_NAME}
 
