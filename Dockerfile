@@ -1,15 +1,15 @@
 FROM node:lts-slim
 
 ENV LANG=C.UTF-8
-ENV APP_ID_NUMBER=55030
-ENV APP_ID_NAME=jstorforumadm
+ENV APP_ID_NUMBER=55031
+ENV APP_ID_NAME=etdadm
 ENV GROUP_ID_NUMBER=1636
-ENV GROUP_ID_NAME=jstorforumadm
+ENV GROUP_ID_NAME=appcommon
 
 RUN apt-get -y update && \
     DEBIAN_FRONTEND=non-interactive && \
     groupadd -g ${GROUP_ID_NUMBER} ${GROUP_ID_NAME} && \
-    useradd -l -s /bin/bash -m -u ${APP_ID_NUMBER} -g jstorforumadm ${APP_ID_NAME}
+    useradd -l -s /bin/bash -m -u ${APP_ID_NUMBER} -g appcommon ${APP_ID_NAME}
 
 WORKDIR /home/${APP_ID_NAME}
 
