@@ -27,10 +27,10 @@ if (run_etd) {
             job_ticket_id + " to queue " + queue_name);
          // Send request to harvest etd
         const client = celery.createClient(amqp_url, amqp_url, queue_name);
-        const task = client.createTask("tasks.tasks.do_task");
-        const result = task.applyAsync( [{'job_ticket_id': job_ticket_id, 'etd': true, 
+        const task = client.createTask("etd-dash-service.tasks.send_to_dash");
+        const result = task.applyAsync( [{'job_ticket_id': job_ticket_id, 'etd': true, 'feature_flags' : {
         	'dash_feature_flag': dash_feature_flag, 'alma_feature_flag': alma_feature_flag,
-        	'send_to_drs_feature_flag': send_to_drs_feature_flag, 'drs_holding_record_feature_flag': drs_holding_record_feature_flag}] );
+        	'send_to_drs_feature_flag': send_to_drs_feature_flag, 'drs_holding_record_feature_flag': drs_holding_record_feature_flag}}] );
         result.get().then(data => { client.disconnect(); });
     });
 }
