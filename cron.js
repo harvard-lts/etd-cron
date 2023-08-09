@@ -13,10 +13,10 @@ const etd_crontab = process.env.ETD_CRONTAB;
 const run_etd = parseInt(process.env.RUN_ETD);
 
 //Feature flags
-const dash_feature_flag = parseInt(process.env.DASH_FEATURE_FLAG);
-const alma_feature_flag = parseInt(process.env.ALMA_FEATURE_FLAG);
-const send_to_drs_feature_flag = parseInt(process.env.SEND_TO_DRS_FEATURE_FLAG);
-const drs_holding_record_feature_flag = parseInt(process.env.DRS_HOLDING_RECORD_FEATURE_FLAG);
+const dash_feature_flag = process.env.DASH_FEATURE_FLAG;
+const alma_feature_flag = process.env.ALMA_FEATURE_FLAG;
+const send_to_drs_feature_flag = process.env.SEND_TO_DRS_FEATURE_FLAG;
+const drs_holding_record_feature_flag = process.env.DRS_HOLDING_RECORD_FEATURE_FLAG;
 
 //ETD crontab
 if (run_etd) {
