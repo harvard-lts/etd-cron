@@ -12,7 +12,7 @@ const queue_name = process.env.QUEUE_NAME;
 const etd_crontab = process.env.ETD_CRONTAB;
 const run_etd = parseInt(process.env.RUN_ETD);
 
-const dash_task = process.env.DASH_TASK
+const dash_task = process.env.DASH_TASK;
 
 //Feature flags
 const dash_feature_flag = process.env.DASH_FEATURE_FLAG;
