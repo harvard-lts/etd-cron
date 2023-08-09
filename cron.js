@@ -12,6 +12,8 @@ const queue_name = process.env.QUEUE_NAME;
 const etd_crontab = process.env.ETD_CRONTAB;
 const run_etd = parseInt(process.env.RUN_ETD);
 
+const dash_task = process.env.DASH_TASK
+
 //Feature flags
 const dash_feature_flag = process.env.DASH_FEATURE_FLAG;
 const alma_feature_flag = process.env.ALMA_FEATURE_FLAG;
@@ -27,7 +29,7 @@ if (run_etd) {
             job_ticket_id + " to queue " + queue_name);
          // Send request to harvest etd
         const client = celery.createClient(amqp_url, amqp_url, queue_name);
-        const task = client.createTask("etd-dash-service.tasks.send_to_dash");
+        const task = client.createTask(dash_task);
         const result = task.applyAsync( [{'job_ticket_id': job_ticket_id, 'etd': true, 'feature_flags' : {
         	'dash_feature_flag': dash_feature_flag, 'alma_feature_flag': alma_feature_flag,
         	'send_to_drs_feature_flag': send_to_drs_feature_flag, 'drs_holding_record_feature_flag': drs_holding_record_feature_flag}}] );
