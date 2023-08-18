@@ -5,7 +5,7 @@ const https = require("https");
 var amqp = require('amqplib/callback_api');
 const fs = require('fs')
 const celery = require('celery-node');
-const consoleLogger = require('./logger.js').console
+const { console: consoleLogger, skipLogs } = require('./logger/logger.js');
 
 const amqp_url = process.env.AMPQ_URL;
 const queue_name = process.env.QUEUE_NAME;

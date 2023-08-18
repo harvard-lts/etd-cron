@@ -13,7 +13,8 @@ RUN apt-get -y update && \
 
 WORKDIR /home/${APP_ID_NAME}
 
-COPY --chown=${APP_ID_NAME}:${GROUP_ID_NAME} cron.js logger.js package.json package-lock.json  ./
+COPY --chown=${APP_ID_NAME}:${GROUP_ID_NAME} cron.js package.json package-lock.json  ./
+COPY --chown=${APP_ID_NAME}:${GROUP_ID_NAME} logger/logger.js  ./logger/logger.js
 RUN chown -R ${APP_ID_NAME}:${GROUP_ID_NAME} /home/${APP_ID_NAME}
 
 # Guarantees umask is set properly to alleviate issue with umask not sticking inside the node container
