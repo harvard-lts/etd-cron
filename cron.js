@@ -48,12 +48,12 @@ if (run_alma_monitor) {
         const job_ticket_id = (Math.floor((Math.random() * 4294967296) + 1)).toString();
         consoleLogger.info("sending alma monitor message id " + 
             job_ticket_id + " to queue " + alma_monitor_queue_name);
-         // Send message to alma monitor via queue
+        // Send message to alma monitor via queue
         const client = celery.createClient(amqp_url, amqp_url, alma_monitor_queue_name);
-        const task = client.createTask(alma_monitor_task);       
+        const task = client.createTask(alma_monitor_task);
         const result = task.applyAsync( [{'job_ticket_id': job_ticket_id, 'etd': true, 'feature_flags' : {
-        	'dash_feature_flag': dash_feature_flag, 'alma_feature_flag': alma_feature_flag,
-        	'send_to_drs_feature_flag': send_to_drs_feature_flag, 'drs_holding_record_feature_flag': drs_holding_record_feature_flag}}] );
+            'dash_feature_flag': dash_feature_flag, 'alma_feature_flag': alma_feature_flag,
+            'send_to_drs_feature_flag': send_to_drs_feature_flag, 'drs_holding_record_feature_flag': drs_holding_record_feature_flag}}] );
         result.get().then(data => { client.disconnect(); });
     });
 }
