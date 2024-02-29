@@ -22,7 +22,6 @@ const alma_monitor_task = process.env.ALMA_MONITOR_TASK;
 const dash_feature_flag = process.env.DASH_FEATURE_FLAG;
 const alma_feature_flag = process.env.ALMA_FEATURE_FLAG;
 const send_to_drs_feature_flag = process.env.SEND_TO_DRS_FEATURE_FLAG;
-const drs_holding_record_feature_flag = process.env.DRS_HOLDING_RECORD_FEATURE_FLAG;
 
 //ETD crontab
 if (run_etd) {
@@ -36,7 +35,7 @@ if (run_etd) {
         const task = client.createTask(dash_task);
         const result = task.applyAsync( [{'job_ticket_id': job_ticket_id, 'etd': true, 'feature_flags' : {
         	'dash_feature_flag': dash_feature_flag, 'alma_feature_flag': alma_feature_flag,
-        	'send_to_drs_feature_flag': send_to_drs_feature_flag, 'drs_holding_record_feature_flag': drs_holding_record_feature_flag}}] );
+        	'send_to_drs_feature_flag': send_to_drs_feature_flag}}] );
         result.get().then(data => { client.disconnect(); });
     });
 }
@@ -53,7 +52,7 @@ if (run_alma_monitor) {
         const task = client.createTask(alma_monitor_task);
         const result = task.applyAsync( [{'job_ticket_id': job_ticket_id, 'etd': true, 'feature_flags' : {
             'dash_feature_flag': dash_feature_flag, 'alma_feature_flag': alma_feature_flag,
-            'send_to_drs_feature_flag': send_to_drs_feature_flag, 'drs_holding_record_feature_flag': drs_holding_record_feature_flag}}] );
+            'send_to_drs_feature_flag': send_to_drs_feature_flag}}] );
         result.get().then(data => { client.disconnect(); });
     });
 }
